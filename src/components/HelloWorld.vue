@@ -1,8 +1,8 @@
 <template>
   <div class="hello container px-4 mx-auto">
     <h1>{{ msg }}</h1>
-    <div class="border border-black-600">
-    <p class="text-blue-700 text-xs text-left">Choose a car:</p>
+    <div>
+    <p class="mt-1 text-blue-700 text-xs text-left">Choose a car:</p>
     <select class="form-select mt-1 w-full" name="cars" id="cars">
       <option value="lamborghini">Lamborghini</option>
       <option value="ferrari">Ferrari</option>

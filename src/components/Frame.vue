@@ -154,7 +154,62 @@
                     </button>
                   </div>
                 </div>
-              </div>            
+              </div>
+              <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
+                <div>
+                  <h1 class="font-bold">Classes</h1>
+      <div class="max-w-3xl mx-auto divide-y-2 divide-gray-200">
+        <dl class="mt-6 space-y-6 divide-y divide-gray-200">
+          <Disclosure as="div" v-for="term in terms" :key="term.term" class="pt-6" v-slot="{ open }">
+            <dt class="text-lg">
+              <DisclosureButton class="text-left w-full flex justify-between items-start text-gray-400">
+                <span class="font-medium text-gray-900">
+                  {{ term.term }}
+                </span>
+                <span class="ml-6 h-7 flex items-center">
+                  <ChevronDownIcon :class="[open ? '-rotate-180' : 'rotate-0', 'h-6 w-6 transform']" aria-hidden="true" />
+                </span>
+              </DisclosureButton>
+            </dt>
+            <DisclosurePanel as="dd" class="mt-2 pr-12">
+              <div class="flex flex-col">
+                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                  <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                      <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                          <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Class Name
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Teacher
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody v-for="classRoom in term.classes" :key="classRoom.className">
+                          <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  {{ classRoom.className }}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {{ classRoom.teacher }}
+                </td>
+                
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+            </DisclosurePanel>
+          </Disclosure>
+        </dl>
+      </div>
+  
+  </div>
+              </div>          
             </div>
             <div class="p-4 m-2 flex-grow bg-white">
               <h1 class="font-bold">Profile</h1>
@@ -194,6 +249,7 @@ import {
   //UsersIcon,
   XIcon,
   CogIcon,
+  ChevronDownIcon,
 } from '@heroicons/vue/outline'
 //import { SearchIcon } from '@heroicons/vue/solid'
 import userProfile from './UserProfile'
@@ -231,6 +287,62 @@ const userNavigation = [
   { name: 'Your Profile', href: '#' },
   { name: 'Sign out', href: '#' },
 ]
+const terms = [
+  {
+    term: '1st 6 Weeks',
+    classes: [
+      {className: 'Reading & Writing', teacher: 'Johnson, Joe'},
+      {className: 'History', teacher: 'Jackson, Jane'},
+      {className: 'Math', teacher: 'Smith, Albert'},
+      {className: 'Science', teacher: 'Williams, Will'},
+    ],
+  },
+  {
+    term: '2nd 6 Weeks',
+    classes: [
+      {className: 'Reading & Writing', teacher: 'Johnson, Joe'},
+      {className: 'History', teacher: 'Jackson, Jane'},
+      {className: 'Math', teacher: 'Smith, Albert'},
+      {className: 'Science', teacher: 'Williams, Will'},
+    ],
+  },
+  {
+    term: '3rd 6 Weeks',
+    classes: [
+      {className: 'Reading & Writing', teacher: 'Johnson, Joe'},
+      {className: 'History', teacher: 'Jackson, Jane'},
+      {className: 'Math', teacher: 'Smith, Albert'},
+      {className: 'Science', teacher: 'Williams, Will'},
+    ],
+  },
+  {
+    term: '4th 6 Weeks',
+    classes: [
+      {className: 'Reading & Writing', teacher: 'Johnson, Joe'},
+      {className: 'History', teacher: 'Jackson, Jane'},
+      {className: 'Math', teacher: 'Smith, Albert'},
+      {className: 'Science', teacher: 'Williams, Will'},
+    ],
+  },
+  {
+    term: '5th 6 Weeks',
+    classes: [
+      {className: 'Reading & Writing', teacher: 'Johnson, Joe'},
+      {className: 'History', teacher: 'Jackson, Jane'},
+      {className: 'Math', teacher: 'Smith, Albert'},
+      {className: 'Science', teacher: 'Williams, Will'},
+    ],
+  },
+  {
+    term: '6th 6 Weeks',
+    classes: [
+      {className: 'Reading & Writing', teacher: 'Johnson, Joe'},
+      {className: 'History', teacher: 'Jackson, Jane'},
+      {className: 'Math', teacher: 'Smith, Albert'},
+      {className: 'Science', teacher: 'Williams, Will'},
+    ],
+  },
+]
 
 export default {
   components: {
@@ -251,6 +363,7 @@ export default {
     Disclosure,
     DisclosureButton,
     DisclosurePanel,
+    ChevronDownIcon,
   },
   setup() {
     const sidebarOpen = ref(false)
@@ -259,6 +372,7 @@ export default {
       navigation,
       userNavigation,
       sidebarOpen,
+      terms,
     }
   },
 }

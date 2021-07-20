@@ -1,20 +1,16 @@
 <template>
 
-  <sidebar/>
-  <img class="mx-auto" alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to the Liberty TailwindCSS Playground"/>
+  <frame/>
 
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import sidebar from './components/Sidebar'
+import frame from './components/Frame'
 
 export default {
   name: 'App',
   components: {
-    sidebar,
-    HelloWorld
+    frame
   }
 }
 </script>
